@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ukrainian Power Awards</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-weight: normal;
+      opacity: 0.9;
+    }
+
+    .buttons {
+      margin: 30px 0;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .main-btn {
+      background: #22c55e;
+      color: black;
+      font-weight: bold;
+    }
+
+    .secondary-btn {
+      background: #334155;
+      color: white;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+
+    .lang-switch button {
+      background: #111827;
+      color: white;
+      border: 1px solid #444;
+    }
+
+    section {
+      padding: 30px;
+    }
+
+    .card {
+      background: #1e293b;
+      margin: 10px auto;
+      padding: 15px;
+      border-radius: 12px;
+      max-width: 400px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="lang-switch">
+  <button onclick="setLang('ua')">UA</button>
+  <button onclick="setLang('en')">EN</button>
+</div>
+
+<header>
+  <h1 id="title">Ukrainian Power Awards</h1>
+  <h2 id="subtitle">Премія Потужності України</h2>
+</header>
+
+<section>
+  <div class="buttons">
+    <button class="main-btn" id="voteBtn">Voting</button>
+    <button class="secondary-btn" id="ratingBtn">Rating</button>
+    <button class="secondary-btn" id="applyBtn">Submit Candidate</button>
+  </div>
+</section>
+
+<section>
+  <h3 id="sectionTitle">Top Candidates (demo)</h3>
+
+  <div class="card">
+    <p>Example Candidate</p>
+    <p>Votes: 0</p>
+  </div>
+
+  <div class="card">
+    <p>Example Candidate 2</p>
+    <p>Votes: 0</p>
+  </div>
+</section>
+
+<script>
+  function setLang(lang) {
+    if (lang === "ua") {
+      document.getElementById("title").innerText = "Ukrainian Power Awards";
+      document.getElementById("subtitle").innerText = "Премія Потужності України";
+
+      document.getElementById("voteBtn").innerText = "Голосування";
+      document.getElementById("ratingBtn").innerText = "Рейтинг";
+      document.getElementById("applyBtn").innerText = "Подати кандидата";
+
+      document.getElementById("sectionTitle").innerText = "Топ кандидати (демо)";
+    }
+
+    if (lang === "en") {
+      document.getElementById("title").innerText = "Ukrainian Power Awards";
+      document.getElementById("subtitle").innerText = "Power Award of Ukraine";
+
+      document.getElementById("voteBtn").innerText = "Voting";
+      document.getElementById("ratingBtn").innerText = "Rating";
+      document.getElementById("applyBtn").innerText = "Submit Candidate";
+
+      document.getElementById("sectionTitle").innerText = "Top Candidates (demo)";
+    }
+  }
+</script>
+
+</body>
+</html>
