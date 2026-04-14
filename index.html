@@ -1,217 +1,203 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ukrainian Power Awards | Премія Потужності</title>
-    <style>
-        :root {
-            --gold: #ffd700;
-            --blue: #0057b7;
-            --yellow: #ffd700;
-            --dark: #121212;
-            --card-bg: #1e1e1e;
-            --white: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Премія Потужності України</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark);
-            color: var(--white);
-            margin: 0;
-            line-height: 1.6;
-        }
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+}
 
-        header {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1469474094887-11830a5cc595?auto=format&fit=crop&q=80&w=1000') no-repeat center/cover;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-bottom: 4px solid var(--gold);
-        }
+/* 🔝 МЕНЮ */
+nav {
+  background: #020617;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
 
-        .logo-area h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+nav button {
+  background: #1e293b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
 
-        .logo-area .ua-title {
-            color: var(--gold);
-            font-size: 1.5rem;
-            display: block;
-            margin-top: 10px;
-        }
+nav button:hover {
+  background: #334155;
+}
 
-        nav {
-            background: #000;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+/* БАНЕР */
+.hero {
+  height: 60vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+  url('https://i.ibb.co/F4pGrwHQ/image.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
+.hero h1 {
+  font-size: 42px;
+}
 
-        nav a:hover {
-            color: var(--gold);
-        }
+/* СЕКЦІЇ */
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
 
-        h2 {
-            text-align: center;
-            border-bottom: 2px solid var(--gold);
-            display: inline-block;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
 
-        /* Section: Timeline */
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
-        }
+.hidden {
+  display: none;
+}
 
-        .step {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            border-left: 5px solid var(--blue);
-        }
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+}
 
-        .step.active {
-            border-color: var(--gold);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-        }
-
-        /* Section: Rating Table */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #333;
-        }
-
-        th {
-            background-color: #252525;
-            color: var(--gold);
-        }
-
-        .rank { font-weight: bold; color: var(--gold); }
-
-        .btn {
-            background: var(--gold);
-            color: black;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-    </style>
+button.main {
+  background: #22c55e;
+  color: black;
+}
+</style>
 </head>
+
 <body>
 
+<!-- 🔝 МЕНЮ -->
 <nav>
-    <a href="#home">Home</a>
-    <a href="#rating">Рейтинг</a>
-    <a href="#voting">Голосування</a>
-    <a href="#registration">Реєстрація</a>
+  <button onclick="show('main')">Головна</button>
+  <button onclick="show('award')">Премія Потужності України</button>
+  <button onclick="show('rating')">Рейтинг Потужності України</button>
+  <button onclick="show('winners')">Переможці</button>
 </nav>
 
-<header id="home">
-    <div class="logo-area">
-        <h1>UKRAINIAN POWER AWARDS</h1>
-        <span class="ua-title">Премія Потужності України</span>
+<!-- 🏠 ГОЛОВНА -->
+<div id="main">
+<div id="main">
+  <div class="hero">
+    <div>
+      <h1>Ukrainian Power Awards</h1>
+      <p>Премія Потужності України</p>
     </div>
-</header>
+  </div>
 
-<div class="container">
-    
-    <section id="voting">
-        <center><h2>Етапи Премії 2026</h2></center>
-        <div class="timeline">
-            <div class="step">
-                <h3>Реєстрація</h3>
-                <p>Весна - Літо</p>
-            </div>
-            <div class="step">
-                <h3>Відбір</h3>
-                <p>Вересень</p>
-            </div>
-            <div class="step active">
-                <h3>Autumn Play-off</h3>
-                <p>Жовтень - Листопад</p>
-            </div>
-            <div class="step">
-                <h3>Winter Final</h3>
-                <p>Грудень</p>
-            </div>
-        </div>
-    </section>
+  <section>
 
-    <section id="rating">
-        <center><h2>Global Power Rating (All-time)</h2></center>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Кандидат</th>
-                    <th>Виграші</th>
-                    <th>Голоси</th>
-                    <th>Потужність (Pts)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="rank">#1</td>
-                    <td>Олександр "Титан"</td>
-                    <td>3</td>
-                    <td>15,400</td>
-                    <td>98.5</td>
-                </tr>
-                <tr>
-                    <td class="rank">#2</td>
-                    <td>Марія "Енергія"</td>
-                    <td>1</td>
-                    <td>12,200</td>
-                    <td>85.2</td>
-                </tr>
-                </tbody>
-        </table>
-    </section>
+    <div class="card">
+      <h2>Про проєкт</h2>
+      <p>Премія Потужності України — це щорічний онлайн-проєкт, у якому користувачі визначають найпотужніших людей країни через голосування та рейтинг.</p>
+      <p>Це не просто голосування — це повноцінна система рейтингу та премії, де кожен кандидат проходить шлях від подачі заявки до фіналу.</p>
+      <p>Користувачі можуть додавати кандидатів, голосувати за них і впливати на їх позицію в загальному рейтингу.</p>
+    </div>
 
+    <div class="card">
+      <h2>Що таке Потужність?</h2>
+      <p>Потужність — це не просто слово. Це стан душі.</p>
+      <p>Це коли волонтер збирає на байрактар за годину, коли спортсмен підіймає прапор на весь світ, і коли мем у Верховній Раді змушує реготати всю країну.</p>
+      <p><b>Ми не шукаємо ідеальних. Ми шукаємо ПОТУЖНИХ.</b></p>
+    </div>
+
+    <div class="card">
+      <h2>Етапи премії</h2>
+
+      <p><b>🌱 Весна — Подача заявок</b><br>
+      Реєстрація. Ти висуваєш того, хто вразив тебе своєю потужністю.</p>
+
+      <p><b>☀️ Літо — Відбір</b><br>
+      Малі ліги та відбори. Формуємо ТОП-рейтинг країни.</p>
+
+      <p><b>🍂 Осінь — Плей-оф</b><br>
+      Жорсткі батли за право вийти у фінал.</p>
+
+      <p><b>❄️ Грудень — Фінал</b><br>
+      Великий фінал. 31 грудня країна дізнається ім'я Містера або Міс Потужність 2026.</p>
+    </div>
+
+    <div class="card">
+      <h2>Правила</h2>
+      <p>✔ Зареєструвати можна будь-кого: від сусіда до президента</p>
+      <p>✔ Один кандидат — одна анкета</p>
+      <p>✔ Повторні заявки об'єднуються</p>
+      <p>✔ Твоє завдання — довести, чому кандидат заслуговує на титул</p>
+      <p>✔ Премія проводиться серйозно, але з усмішкою</p>
+    </div>
+
+  </section>
 </div>
+</div>
+
+<!-- 📊 РЕЙТИНГ -->
+<div id="rating" class="hidden">
+  <section>
+    <h2>Рейтинг Потужності України</h2>
+
+    <div class="card">
+      <p>1. Кандидат 1 — 0 голосів</p>
+      <p>2. Кандидат 2 — 0 голосів</p>
+    </div>
+  </section>
+</div>
+
+<!-- 🏆 ПЕРЕМОЖЦІ -->
+<div id="winners" class="hidden">
+  <section>
+    <h2>Переможці</h2>
+
+    <div class="card">
+      <h3>2026</h3>
+      <p>🏆 Містер Потужність — TBD</p>
+      <p>🏆 Міс Потужність — TBD</p>
+    </div>
+  </section>
+</div>
+
+<script>
+function show(page) {
+  document.getElementById("main").classList.add("hidden");
+  document.getElementById("award").classList.add("hidden");
+  document.getElementById("rating").classList.add("hidden");
+  document.getElementById("winners").classList.add("hidden");
+
+  document.getElementById(page).classList.remove("hidden");
+}
+
+function vote(btn) {
+  let span = btn.parentElement.querySelector("span");
+  span.innerText = parseInt(span.innerText) + 1;
+}
+</script>
 
 </body>
 </html>
