@@ -1,144 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ukrainian Power Awards</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukrainian Power Awards | Премія Потужності</title>
+    <style>
+        :root {
+            --gold: #ffd700;
+            --blue: #0057b7;
+            --yellow: #ffd700;
+            --dark: #121212;
+            --card-bg: #1e1e1e;
+            --white: #ffffff;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
+            margin: 0;
+            line-height: 1.6;
+        }
 
-    header {
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #1e3a8a, #7c3aed);
-    }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1469474094887-11830a5cc595?auto=format&fit=crop&q=80&w=1000') no-repeat center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+        }
 
-    h1 {
-      margin: 0;
-      font-size: 40px;
-    }
+        .logo-area h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
 
-    h2 {
-      margin-top: 10px;
-      font-weight: normal;
-      opacity: 0.9;
-    }
+        .logo-area .ua-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            display: block;
+            margin-top: 10px;
+        }
 
-    .buttons {
-      margin: 30px 0;
-    }
+        nav {
+            background: #000;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    button {
-      padding: 12px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 16px;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
 
-    .main-btn {
-      background: #22c55e;
-      color: black;
-      font-weight: bold;
-    }
+        nav a:hover {
+            color: var(--gold);
+        }
 
-    .secondary-btn {
-      background: #334155;
-      color: white;
-    }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-    .lang-switch {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
+        h2 {
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
 
-    .lang-switch button {
-      background: #111827;
-      color: white;
-      border: 1px solid #444;
-    }
+        /* Section: Timeline */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
 
-    section {
-      padding: 30px;
-    }
+        .step {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 5px solid var(--blue);
+        }
 
-    .card {
-      background: #1e293b;
-      margin: 10px auto;
-      padding: 15px;
-      border-radius: 12px;
-      max-width: 400px;
-    }
-  </style>
+        .step.active {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Section: Rating Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background-color: #252525;
+            color: var(--gold);
+        }
+
+        .rank { font-weight: bold; color: var(--gold); }
+
+        .btn {
+            background: var(--gold);
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="lang-switch">
-  <button onclick="setLang('ua')">UA</button>
-  <button onclick="setLang('en')">EN</button>
-</div>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#rating">Рейтинг</a>
+    <a href="#voting">Голосування</a>
+    <a href="#registration">Реєстрація</a>
+</nav>
 
-<header>
-  <h1 id="title">Ukrainian Power Awards</h1>
-  <h2 id="subtitle">Премія Потужності України</h2>
+<header id="home">
+    <div class="logo-area">
+        <h1>UKRAINIAN POWER AWARDS</h1>
+        <span class="ua-title">Премія Потужності України</span>
+    </div>
 </header>
 
-<section>
-  <div class="buttons">
-    <button class="main-btn" id="voteBtn">Voting</button>
-    <button class="secondary-btn" id="ratingBtn">Rating</button>
-    <button class="secondary-btn" id="applyBtn">Submit Candidate</button>
-  </div>
-</section>
+<div class="container">
+    
+    <section id="voting">
+        <center><h2>Етапи Премії 2026</h2></center>
+        <div class="timeline">
+            <div class="step">
+                <h3>Реєстрація</h3>
+                <p>Весна - Літо</p>
+            </div>
+            <div class="step">
+                <h3>Відбір</h3>
+                <p>Вересень</p>
+            </div>
+            <div class="step active">
+                <h3>Autumn Play-off</h3>
+                <p>Жовтень - Листопад</p>
+            </div>
+            <div class="step">
+                <h3>Winter Final</h3>
+                <p>Грудень</p>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h3 id="sectionTitle">Top Candidates (demo)</h3>
+    <section id="rating">
+        <center><h2>Global Power Rating (All-time)</h2></center>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Кандидат</th>
+                    <th>Виграші</th>
+                    <th>Голоси</th>
+                    <th>Потужність (Pts)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="rank">#1</td>
+                    <td>Олександр "Титан"</td>
+                    <td>3</td>
+                    <td>15,400</td>
+                    <td>98.5</td>
+                </tr>
+                <tr>
+                    <td class="rank">#2</td>
+                    <td>Марія "Енергія"</td>
+                    <td>1</td>
+                    <td>12,200</td>
+                    <td>85.2</td>
+                </tr>
+                </tbody>
+        </table>
+    </section>
 
-  <div class="card">
-    <p>Example Candidate</p>
-    <p>Votes: 0</p>
-  </div>
-
-  <div class="card">
-    <p>Example Candidate 2</p>
-    <p>Votes: 0</p>
-  </div>
-</section>
-
-<script>
-  function setLang(lang) {
-    if (lang === "ua") {
-      document.getElementById("title").innerText = "Ukrainian Power Awards";
-      document.getElementById("subtitle").innerText = "Премія Потужності України";
-
-      document.getElementById("voteBtn").innerText = "Голосування";
-      document.getElementById("ratingBtn").innerText = "Рейтинг";
-      document.getElementById("applyBtn").innerText = "Подати кандидата";
-
-      document.getElementById("sectionTitle").innerText = "Топ кандидати (демо)";
-    }
-
-    if (lang === "en") {
-      document.getElementById("title").innerText = "Ukrainian Power Awards";
-      document.getElementById("subtitle").innerText = "Power Award of Ukraine";
-
-      document.getElementById("voteBtn").innerText = "Voting";
-      document.getElementById("ratingBtn").innerText = "Rating";
-      document.getElementById("applyBtn").innerText = "Submit Candidate";
-
-      document.getElementById("sectionTitle").innerText = "Top Candidates (demo)";
-    }
-  }
-</script>
+</div>
 
 </body>
 </html>
